@@ -54,5 +54,9 @@ eco_route/
 │   ├── connection.py   # Configuración de la conexión a la base de datos
 │   ├── vehicle_repo.py  # Repositorio para operaciones CRUD de vehículos
 │   └── migrations/     # Scripts de migración para la base de datos
-├
+├── test/
+│   ├── __init__.py   # Archivo de inicialización para el paquete de pruebas
+|   ├── test_validators.py    # Pruebas para los validadores
+
+
 ```
