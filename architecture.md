@@ -98,7 +98,7 @@ Define la estructura de datos del dominio
 ``` python
 @dataclass
 class Vehicle:
-    id_vehiculo : str
+    id_vehiculo : str 
     model: str
     capacidad_bateria_total: float
     nivel_bateria_actual: float
@@ -123,5 +123,60 @@ Funciones de validación sin efectos secundarios. Devuelven `True` o lanzan `Val
 Orquesta los casos de uso. Es el único punto de contacto entre CLI y repositorio.
 | Método              | Caso de Uso               |
 |----------------------|---------------------------|
-| `add_vehicle(datos)`  | Agrega un nuevo vehículo a la flota. |
-| `delete_vehicle(id)` | Elimina un vehículo de la flota. |
+| `add_vehicle(datos)`  | CU-01 |
+| `delete_vehicle(id_vehiculo)` | CU-02 |
+| `list_vehicles()`     | CU-04 |
+| `edit_vehicle(id_vehiculo, new_datos)` | CU-03 |
+| `add_entrega(datos)`  | CU-06 |
+| `delete_entrega(id_entrega)` | CU-07 |
+| `edit_entrega(id_entrega, new_datos)` | CU-08 |
+| `list_entregas()`     | CU-09 |
+| `add_ruta(datos)`  | CU-10 |
+| `delete_ruta(id_ruta)` | CU-11 |
+| `edit_ruta(id_ruta, new_datos)` | CU-12 |
+| `list_rutas()`     | CU-13 |
+---
+### 3.7 db/connection.py
+Gestiona la conexión a MySQL.
+Carga la configuración desde variables de entorno:
+`DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER`, `DB_PASSWORD`.
+
+---
+### 3.8 db/vehicle_repo.py
+Repositorio de acceso a datos. Todas las consultas usan parámetros (`%s`).
+| Método              | SQL generado               |
+|----------------------|----------------------------|
+| `add_vehicle(vehicle)`  | `INSERT INTO vehicles ...` |
+| `delete_vehicle(id_vehiculo)` | `DELETE FROM vehicles WHERE id_vehiculo = %s` |
+| `list_vehicles()`     | `SELECT * FROM vehicles` |
+| `edit_vehicle(id_vehiculo, new_datos)` | `UPDATE vehicles SET ... WHERE id_vehiculo = %s` |
+| `consulta_esp(id_vehiculo)` | `SELECT * FROM vehicles WHERE id_vehiculo = %s` |
+| `search_vehicles(model, estado)` | `SELECT * FROM vehicles WHERE model LIKE %s AND estado = %s` |
+| `add_ruta(ruta)`  | `INSERT INTO rutas ...` |
+| `delete_ruta(id_ruta)` | `DELETE FROM rutas WHERE id_ruta = %s` |
+| `list_rutas()`     | `SELECT * FROM rutas` |
+| `edit_ruta(id_ruta, new_datos)` | `UPDATE rutas SET ... WHERE id_ruta = %s` |
+| `add_entrega(entrega)`  | `INSERT INTO entregas ...` |
+| `delete_entrega(id_entrega)` | `DELETE FROM entregas WHERE id_entrega = %s` |
+| `edit_entrega(id_entrega, new_datos)` | `UPDATE entregas SET ... WHERE id_entrega = %s` |
+| `list_entregas()`     | `SELECT * FROM entregas` |
+| `consulta_esp_entrega(id_entrega)` | `SELECT * FROM entregas WHERE id_entrega = %s` |
+| `search_entregas(destino)` | `SELECT * FROM entregas WHERE destino LIKE %s` |
+| `search_rutas(origen, destino)` | `SELECT * FROM rutas WHERE origen LIKE %s AND destino LIKE %s` |
+
+### 3.9 exceptions.py
+Jerarquía de excepciones del proyecto.
+
+---
+
+## 4. Dependecias externas
+
+| Paquete                    | Versión  | Uso                            |
+|----------------------------|----------|--------------------------------|
+| `mysql-connector-python`   | >=8.3.0  | Conexión a MySQL               |
+| `python-dotenv`            | >=1.0.0  | Carga de variables de entorno  |
+| `tabulate`                 | >=0.9.0  | Formateo de tablas en consola  |
+| `pytest`                   | >=8.0.0  | Framework de testing           |
+| `pytest-cov`               | >=5.0.0  | Cobertura de tests             |
+
+---

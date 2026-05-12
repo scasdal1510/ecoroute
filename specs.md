@@ -12,7 +12,7 @@ Herramienta para gestionar flota de furgonetas eléctricas.
 
 ## 3. Casos de uso
 
-- **Registrar vehículos**
+### CU-01 Registrar vehículos ##
   1. El encargado registra los vechículos ingresando modelo, capacidad de batrería y autonomía
   2. El sistema valida los datos.
   3. El sistema guarda los datos.
@@ -20,50 +20,72 @@ Herramienta para gestionar flota de furgonetas eléctricas.
     - Si el tipo de datos es invalido -> error: "Tipo de datos invalido".
     - Si el vehículo ya existe -> error: "El vehículo a registrar ya esta registrado".
 
-- **Eliminar vehículos**
+### CU-02 Eliminar vehículos ##
   1. El encargado especifica mediante el el id el vehículo el cual quiera eliminar.
   2. El sistema busca el vehículo
   3. El sistema elimina el vehículo
   - Flujo alternativo:
     - Si el vehículo no existe -> error: "El vehículo no esta registrado".
-
-- **Editar vehículo**
+### CU-03 Editar vehículo ##
   1. El encargado edita los campos que quiera.
   2. El sistema valida los datos.
   3. El sistema edita los datos.
   - Flujo alternativo:
     - Si el vehículo no existe -> error: "El vehículo no esta registrado".
     - Si el tipo de datos es invalido -> error: "Tipo de datos invalido".
-- **Lógica de seguridad**
+## CU-04 Listar vehículos ##
+  1. El encargado solicita la lista de vehículos.
+  2. El sistema muestra la lista de vehículos registrados.
+
+### CU-05 Lógica de seguridad ##
   1. El sistema detecta si la ruta consume mas del 80% de la batería.
   2. El sistema rechaza la ruta.
   - Flujo alternativo:
     - Si la ruta consume menos del 80% de la batería -> el sistema acepta la ruta.
-- **Crear Entrega**
+### CU-06 Crear Entrega ##
   1. El encargado ingresa destino,peso, prioridad y ventana horaria.
   2. El sistema valida los datos.
   3. El sistema asigna la entrega a un vehículo.
   - Flujo alternativo:
     - Si el tipo de datos es invalido -> error: "Tipo de datos invalido".
-- **Editar Entrega**
+### CU-07 Editar Entrega ##
   1. El encargado edita los campos que quiera.
   2. El sistema valida los datos.
   3. El sistema edita los datos.
   - Flujo alternativo:
     - Si la entrega no existe -> error: "La entrega no esta registrada".
     - Si el tipo de datos es invalido -> error: "Tipo de datos invalido
-- **Eliminar Entrega**
+### CU-08 Eliminar Entrega ##
   1. El encargado pone el id de la entrega que quiera eliminar.
   2. El sistema busca la entrega.
   3. El sistema elimina la entrega.
   - Flujo alternativo:
     - Si la entrega no existe -> error: "La entrega no esta registrada".
-- **Generar Rutas**
+  ### CU-09 Listar Entregas ##
+  1. El encargado solicita la lista de entregas.
+  2. El sistema muestra la lista de entregas registrados.
+### CU-10 Generar Rutas ##
   1. El encargado añade los datos de la ruta.
   2. El sistema valida los datos.
   3. El sistema genera la ruta.
   - Flujo alternativo:
     - Si el tipo de datos es invalido -> error: "Tipo de datos invalido
+### CU-11 Editar Rutas ##
+  1. El encargado edita los campos que quiera.
+  2. El sistema valida los datos.
+  3. El sistema edita los datos.
+  - Flujo alternativo:
+    - Si la ruta no existe -> error: "La ruta no esta registrada".
+    - Si el tipo de datos es invalido -> error: "Tipo de datos invalido
+### CU-12 Eliminar Rutas ##
+  1. El encargado pone el id de la ruta que quiera eliminar.
+  2. El sistema busca la ruta.
+  3. El sistema elimina la ruta.
+  - Flujo alternativo:
+    - Si la ruta no existe -> error: "La ruta no esta registrada".
+### CU-13 Listar Rutas ##
+  1. El encargado solicita la lista de rutas.
+  2. El sistema muestra la lista de rutas registrados.  
 
   
 ## 4.Modelo de datos
