@@ -123,7 +123,7 @@ Al eliminar un contacto, ¿se borra físicamente el registro o se marca como eli
 
 ## ADR-005: Gestión de configuración — Variables de entorno con `.env`
 
-**Fecha:** 12-05-2026  
+**Fecha:** 12-05-2026
 **Estado:** Aceptado
 
 **Contexto:**  
