@@ -14,4 +14,16 @@ Este documento describe los agentes (roles de IA o automatizados) que pueden ope
 | **Encargado** | Gestionar la flota de vehículos, incluyendo la planificación de rutas, el monitoreo del estado de los vehículos y la gestión de entregas. |
 | **Sistema de planificación de rutas** | Generar rutas óptimas para los vehículos eléctricos, considerando factores como el consumo de batería, el tráfico y las condiciones climáticas. |
 | **Sistema de monitoreo de vehículos** | Supervisar el estado de los vehículos en tiempo real, incluyendo la ubicación, el nivel de batería y posibles fallas. |
-| **Sistema de gestión de entregas** | Coordinar las entregas, asignar tareas
+| **Sistema de gestión de entregas** | Coordinar las entregas, asignar tareas a los vehículos y asegurar que las entregas se realicen a tiempo. |
+
+## Diagrama de interaccion
+
+```
+graph TD
+    Encargado -->|Planificar rutas| SistemaPlanificacion
+    Encargado -->|Monitorear vehículos| SistemaMonitoreo
+    Encargado -->|Gestionar entregas| SistemaGestion
+    SistemaPlanificacion -->|Generar rutas óptimas| Encargado
+    SistemaMonitoreo -->|Proporcionar datos en tiempo real| Encargado
+    SistemaGestion -->|Coordinar entregas| Encargado
+```
