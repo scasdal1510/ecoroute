@@ -16,9 +16,8 @@ Este documento describe los agentes (roles de IA o automatizados) que pueden ope
 | **Sistema de monitoreo de vehículos** | Supervisar el estado de los vehículos en tiempo real, incluyendo la ubicación, el nivel de batería y posibles fallas. |
 | **Sistema de gestión de entregas** | Coordinar las entregas, asignar tareas a los vehículos y asegurar que las entregas se realicen a tiempo. |
 | **logic_agent** | Procesar la lógica de negocio, tomar decisiones basadas en los datos y coordinar las acciones entre los diferentes sistemas. |
-| **ui_agent** | Interactuar con el usuario a través de la interfaz gráfica, proporcionando información relevante y recibiendo comandos. |
+| **cli_agent** | Proporcionar una interfaz de línea de comandos para que el encargado pueda interactuar con el sistema, realizar consultas y ejecutar comandos. |
 | **test_agent** | Realizar pruebas en un entorno aislado para asegurar que los cambios no afecten el funcionamiento del sistema. |
-
 
 ## Diagrama de interaccion
 
@@ -26,7 +25,7 @@ Este documento describe los agentes (roles de IA o automatizados) que pueden ope
 Usuario
   │
   ▼
-  ui_agent  ──►  logic_agent  ──►  encargado  ──►  MySQL
+  cli_agent  ──►  logic_agent  ──►  encargado  ──►  MySQL
                                                    │
 test_agent ◄─────────────────────────────────────┘
             (entorno de pruebas aislado)
