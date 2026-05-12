@@ -1,6 +1,19 @@
 # EcoEoute Program
 
 EcoRoute es una aplicación diseñada para gestionar una flota de vehículos electricos, su objetivo es optimizar las rutas de vehículos eléctricos, ayudando a los conductores a planificar sus viajes de manera eficiente y sostenible. 
+
+
+---
+| Campo | Descripción |
+| :--- | :--- |
+| constitution.md | Principios y límites globales (nunca cambia) |
+| agents.md | Quién actúa y con qué restricciones |
+| SPEC.md | Qué se construye (requisitos funcionales) |
+| architecture.md | Cómo se construye (diseño técnico) |
+| decisions.md | Por qué se construyó así (razonamiento) |
+---
+
+
 ## Contenido del proyecto
 ### architecture.md
 *Responde al cómo se construye técnicamente: la estructura de directorios, los módulos, sus responsabilidades y cómo fluyen los datos entre capas. Es la guía de navegación del código.*
